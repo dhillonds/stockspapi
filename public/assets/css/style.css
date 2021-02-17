@@ -1,0 +1,47 @@
+.sp-navbar{
+  background-color: #1be0da !important;
+  color: white;
+}
+.jumbotron{
+	background-color: blue;
+	color: white;
+}
+.dash-button{
+	text-shadow: 2px;
+	padding: 20px;
+	min-height: 200px;
+    font-size: x-large;
+    font-weight: bold;
+}
+#date_input{
+	width: 100%;
+}
+.datepicker_container{
+	/*text-align:center;*/
+}
+.red_btn{
+	color: red;
+}
+.green_btn{
+	color: green;
+}
+.shift_submit, .zero_shift {
+    float: right;
+}
+/*.navbar-default {
+    background-color: ##1be0da;
+    border-color: #5cb85c;
+    color: white;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}*/
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #5cbbed;
+}
