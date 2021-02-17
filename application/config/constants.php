@@ -83,3 +83,22 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/* Defined by the developer */
+define('IS_ADMIN', 1);
+define('NOT_ADMIN', 0);
+define('SALT_LENGTH', 5);
+define('ACTIVE', 1);
+define('INACTIVE', 0);
+define('DELETED', -1);
+
+
+/*
+define('EDITABLE', 1);
+define('NOT_EDITABLE', 0);
+
+define('UNDECIDED_ARITHMETIC', 0);
+define('ARITHMETIC_PLUS', 1);
+define('ARITHMETIC_MINUS', -1);
+define('PER_PAGE', 7);
+*/

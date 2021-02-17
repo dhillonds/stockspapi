@@ -12,51 +12,51 @@ class Users extends CI_Controller {
     {
         // Construct the parent class
         parent::__construct();
-        //$this->load->model('user_model');
+        $this->load->model('user_model');
         //$this->load->model('files_model');
-        //$this->load->library('form_validation');
+        $this->load->library('form_validation');
     }
 
     public function index()
     {
         if(!empty(is_logged_in())){
-            //header("Location: ".base_url()."users/dashboard");
+            header("Location: ".base_url()."users/dashboard");
         }else{
             header("Location: ".base_url()."users/login");
         }
     }
 
     public function login(){
-        // if(!empty(is_logged_in())){
-        //     header("Location: ".base_url()."users/dashboard");
-        // }
-        // $data = array(
-        //                 'status' => FALSE, 
-        //                 'message' => "Something went wrong. Try again later"
-        //             );
-        // if(!empty($_POST)){
-        //     $this->form_validation->set_error_delimiters('','');
-        //     $this->form_validation->set_rules('username', 'Username', 'trim|required');
-        //     $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[40]');
-        //     if($this->form_validation->run() == TRUE){
-        //         $login_data = array(
-        //                             'username'  => $this->input->post('username'), 
-        //                             'password'  => $this->input->post('password')
-        //                         );
-        //         if($return_data = $this->user_model->get_single_user($login_data)){
-        //             start_user_session($return_data);
-        //             if($this->session->userdata['user_creds']){
-        //                 header("Location: ".base_url()."users/dashboard");
-        //                 $data = array(
-        //                                 'status' => TRUE, 
-        //                                 'message' => "User logged in successfully", 
-        //                             );
-        //             }
-        //         }else{
-        //             $data['message'] = "Username or Password is wrong";
-        //         }
-        //     }
-        // }
+        if(!empty(is_logged_in())){
+            header("Location: ".base_url()."users/dashboard");
+        }
+        $data = array(
+                        'status' => FALSE, 
+                        'message' => "Something went wrong. Try again later"
+                    );
+        if(!empty($_POST)){
+            $this->form_validation->set_error_delimiters('','');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[40]');
+            if($this->form_validation->run() == TRUE){
+                $login_data = array(
+                                    'username'  => $this->input->post('username'), 
+                                    'password'  => $this->input->post('password')
+                                );
+                if($return_data = $this->user_model->get_single_user($login_data)){
+                    start_user_session($return_data);
+                    if($this->session->userdata['user_creds']){
+                        header("Location: ".base_url()."users/dashboard");
+                        $data = array(
+                                        'status' => TRUE, 
+                                        'message' => "User logged in successfully", 
+                                    );
+                    }
+                }else{
+                    $data['message'] = "Username or Password is wrong";
+                }
+            }
+        }
         $this->load->view('include/header');
         $this->load->view('login');
         $this->load->view('include/footer');

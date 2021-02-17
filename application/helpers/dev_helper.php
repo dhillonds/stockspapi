@@ -14,25 +14,24 @@ function start_user_session( $login_data =  array() ){
 }
 
 function is_logged_in(){
-	return FALSE;
-	// $CI = & get_instance();
+	$CI = & get_instance();
 
- //    $CI->load->library('session');
- //    if(!empty($CI->session->userdata['user_creds'])){
-	// 	return TRUE;
-	// }
-	// return FALSE;
+    $CI->load->library('session');
+    if(!empty($CI->session->userdata['user_creds'])){
+		return TRUE;
+	}
+	return FALSE;
 }	
 
-// function is_admin(){
-// 	$CI = & get_instance();
+function is_admin(){
+	$CI = & get_instance();
 
-//     $CI->load->library('session');
-//     $userdata =$CI->session->userdata['user_creds'];
-//     if(!empty($userdata)){
-//     	if($userdata['is_admin'] == IS_ADMIN){
-// 			return TRUE;
-//     	}
-// 	}
-// 	return FALSE;
-// }
+    $CI->load->library('session');
+    $userdata =$CI->session->userdata['user_creds'];
+    if(!empty($userdata)){
+    	if($userdata['is_admin'] == IS_ADMIN){
+			return TRUE;
+    	}
+	}
+	return FALSE;
+}
